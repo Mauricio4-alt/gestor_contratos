@@ -7,7 +7,6 @@ def pdf_to_text(doc):
     pages = contrato.pages
     text= list(map(lambda page:page.extract_text(),pages))
     return text
-text = pdf_to_text("")
-print(text)
+
 
 

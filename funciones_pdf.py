@@ -1,4 +1,4 @@
-import PyPDF2.PdfReader as PdfReader
+from PyPDF2 import PdfReader 
 
 def pdf_to_text(doc):
     

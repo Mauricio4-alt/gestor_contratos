@@ -1,12 +1,12 @@
 from __init__ import *
 
 
-texto ="El senor Diego Andres Cardona identificado con cédula 1234 en representación de Casalimpia"
+texto = "Antonio Lopez Identificado con cédula de ciudadanía No 1234 de bogota, actuando en calidad de representante Legal de CasaLimpia S.A."
 
-texto = texto.split()
+
 # extraemos datos del contratante
-contratante ={'nombre':None,'representante':None,'cedula':None}
-datos_contratante = extraer_datos(texto,contratante)
+
+datos_contratante = extraer_datos_contratante(texto)
 
 
 

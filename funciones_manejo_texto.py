@@ -1,16 +1,17 @@
-def extraer_datos_contratante(lista,*palabras):
-    def iterador(lista=lista):
-        texto= dict(lista)
-        datos = dict()
-        for i,j in texto.items():
-            if i in palabras:
-                 datos[i]= j
-            elif j in palabras:
-                datos[j]=i
-            else:
-                None
-            return datos
-    return iterador    
+def extraer_datos(lista,palabras):
+    
+    
+    
+    datos = {}
+    long_lista = range(len(lista))
+    for i in long_lista:
+        if lista[i].lower() in palabras.keys() and lista[i].lower() != 'de':
+            datos[lista[i]]= lista[i+1]
+        
+            
+    return datos    
+        
+        
         
 
 

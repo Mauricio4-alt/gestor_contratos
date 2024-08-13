@@ -1,12 +1,12 @@
 from __init__ import *
 
 
-texto = "Antonio Lopez Identificado con cédula de ciudadanía No 1234 de bogota, actuando en calidad de representante Legal de CasaLimpia S.A."
+contrato = pdf_to_text('./contrato.pdf')
 
 
 # extraemos datos del contratante
 
-datos_contratante = extraer_datos_contratante(texto)
+datos_contratante = extraer_datos_contratante(contrato)
 
 
 

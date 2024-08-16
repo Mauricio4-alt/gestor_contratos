@@ -1,16 +1,10 @@
 from __init__ import *
 
-
-contrato = pdf_to_text('./contratos/contrato_1.pdf')
-
-
-# extraemos datos del contratante
-
-# datos_contratante = extraer_datos_contratante(contrato)
+import aspose.words as aw
 
 
-
-
-
-
-print(contrato)
+# Cargar archivo PDF
+doc = aw.Document()
+builder = aw.DocumentBuilder(doc)
+builder.writeln("Hola Mauricio Jose")
+doc.save(".\\out.txt")

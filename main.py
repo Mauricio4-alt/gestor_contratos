@@ -1,10 +1,6 @@
 from __init__ import *
 
-import aspose.words as aw
+text=extraer_texto("contrato_1")
 
 
 # Cargar archivo PDF
-doc = aw.Document()
-builder = aw.DocumentBuilder(doc)
-builder.writeln("Hola Mauricio Jose")
-doc.save(".\\out.txt")

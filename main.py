@@ -1,6 +1,6 @@
 from __init__ import *
 
-text=extraer_texto("contrato_1")
+text=proteger_pdf_y_extraer_texto('..//contratos//contrato_1.pdf')
 
 
 # Cargar archivo PDF

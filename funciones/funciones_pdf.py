@@ -1,7 +1,7 @@
 import pytesseract
 from PyPDF2 import PdfReader,PdfWriter
 from pdf2image import convert_from_path
-from io import Bytes10
+from io import BytesIO
 
 archivo_original =""
 archivo_protegido =""

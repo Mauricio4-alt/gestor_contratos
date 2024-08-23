@@ -5,8 +5,8 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Users\mjurdanetal\AppData\Local\Pro
 
 def extraer_texto(img):
     img = cv2.imread(f'C://gestor_contratos//contratos_convertidos//{img}.jpeg')
-
-    text = pytesseract.image_to_string(img,lang='spa')
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    text = pytesseract.image_to_string(img_rgb,lang='spa')
     return text
 
-print('text:',extraer_texto('contrato_1-1'))
+# print('text:',extraer_texto('contrato_1-1'))

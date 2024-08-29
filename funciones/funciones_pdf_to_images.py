@@ -25,4 +25,5 @@ def save_images(images, document_name, save_folder=save_folder):
         image.save(save_folder / img_name, "JPEG") # guardamos la imagen con el nuevo nombre [img_name ] en el fichero [saver folder]
         c += 1
 
-
+# images=pdf_to_images("contrato_2")
+# save_images(images,"contrato_corto")

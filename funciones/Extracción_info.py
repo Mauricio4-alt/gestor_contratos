@@ -35,7 +35,7 @@ def extraer_dcontratista(texto):
             }
     
     
-    n_representante = re.compile(r'(?: y por la otra |[\,\;] e )([\w ]+)[\n\ ,] ',re.IGNORECASE)
+    n_representante = re.compile(r'(?: y por la otra |[\;] e )([\w ]+)[\n\ ,] ',re.IGNORECASE)
     
     # c_representante=re.compile(r'(?:de ciudadanía no\. |de ciudadanía número )(\d{1,3}\.?\d{3}\.?\d{3})',re.IGNORECASE)
     # empresa =re.compile(r'(?:representante legal de |representación de)([\w\. ]+)[,;]? ',re.IGNORECASE)

@@ -31,6 +31,11 @@ def extraer_drepresentante(texto,pa_representante,pa_cedula,pa_empre,pa_nit):
         datos['Nit']=nit.group(1) + '-' +nit.group(2)
     return datos,nit.end()
         
+def extraer_obcontrato(texto,patron):
+    pass
+
+
+
 
 
 

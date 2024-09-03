@@ -22,13 +22,14 @@ def extraer_drepresentante(texto,pa_representante,pa_cedula,pa_empre,pa_nit):
     #r'\d{3}\.\d{3}\.\d{3}[ ]?\-[ ]?\d'
     if n_representante:
         datos['nombre_representante']=n_representante.group(1)
+    else: print()
     if c_representante:
         datos['cedula_representante']=c_representante.group(1)
     if empresa:    
         datos['Empresa']=empresa.group(1)
     if nit:
-        datos['Nit']=nit.group(1)
-    return datos,texto.index(datos['Nit'])+len(datos['Nit']) - 1
+        datos['Nit']=nit.group(1) + '-' +nit.group(2)
+    return datos,nit.end()
         
 
 

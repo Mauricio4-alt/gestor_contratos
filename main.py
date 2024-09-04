@@ -13,25 +13,27 @@ empresa = r'(?:representación de| representante legal de )([\w\. ]+)[,;]?'
 nit = r'identificada con (?:el )?NIT[:\s]+([\d\.]+)\s*[—\-–]\s*(\d)'
 
 # Extraer datos del contratante y el ultimo punto de lectura
-datos_contratante = extraer_drepresentante(texto, nombre, cedula, empresa, nit)
-contrato['contratante'], fin = datos_contratante
+datos_contratante,fin = extraer_drepresentante(texto, nombre, cedula, empresa, nit)
+contrato['contratante']= datos_contratante
 
 # Delimitación del texto para evitar repeticiones
-sig_texto = texto[fin:]
-print(sig_texto)
-
+texto = texto[fin:]
 # Expresiones regulares para el contratist
 nombre = r'(?:y por la otra| e) ([áéíóúa-z ]+)'
 empresa = r'(?:representante legal de la sociedad )?([\w\. ]*), sociedad'
-datos_contratista,fin = extraer_drepresentante(sig_texto,nombre,cedula,empresa,nit)
-
+datos_contratista,fin = extraer_drepresentante(texto,nombre,cedula,empresa,nit)
+texto = texto[fin:]
+# print(texto)
 #delimitación del texto
-sig_texto =texto[fin:]
-contrato['contratista'] = datos_contratista
+
+contrato['contratista'] = datos_contratista# print(sig_texto)
 
 # Extraer objeto
-
-
-print(fin)
+pobj = r'(?<=PRIMERA\.- OBJETO:)(.*?)(?=\nLas sociedades objeto del presente contrato son:|Parágrafo Primero:|$)'
+obj=extraer_objcontrato(texto,pobj)
+# print(texto)
+# print(obj)
+contrato['Objeto'] = obj
+# print(fin)
 for i in contrato:
     print(f'{i}: {contrato[i]}')

@@ -32,10 +32,12 @@ def extraer_drepresentante(texto,pa_representante,pa_cedula,pa_empre,pa_nit):
     return datos,nit.end()
         
 def extraer_objcontrato(texto,patron): # para garantizar el exito de esta expresión es necesario usar . en ella
-    #delimitar
-   coincidencia = re.search(patron, texto, re.DOTALL)
-   if coincidencia:
-       return coincidencia.group(0).strip()
+    
+    coincidencias = re.findall(patron, texto, re.DOTALL)
+    listas_objeto = [p.strip() for p in coincidencias]
+    return listas_objeto      
+
+
 
 
 

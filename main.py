@@ -1,8 +1,8 @@
 from __init__ import *
 
 # Cargar archivo PDF
-texto = extraer_texto("contrato_corto-1")
-# texto = extraer_texto("contrato_1-1")
+# texto = extraer_texto("contrato_corto-1")
+texto = extraer_texto("contrato_2-1")
 # print(texto)
 contrato = {}
 
@@ -29,12 +29,20 @@ texto = texto[fin:]
 contrato['contratista'] = datos_contratista# print(sig_texto)
 
 # Extraer objeto
-pobj = r"\d+\.\s(.*?)(?=\s\d+\.\s|$)"
-obj=extraer_objcontrato(texto,pobj)
+# pobj = r"\d+\.\s(.*?)(?=\s\d+\.\s|$)"
+# obj=extraer_objcontrato(texto,pobj)
 # print(texto)
 # print(obj)
-contrato['Objeto'] = obj
+# contrato['Objeto'] = obj
 # print(fin)
-# for i in contrato:
-#     print(f'{i}: {contrato[i]}')
-print(contrato['Objeto'])
+
+# extraer detalles financieros  
+# contratista
+# pa_contratante = r''
+# contrato['obligaciones'] = dict()
+# contrato['obligaciones']['contratista'] = extraer_obligaciones()
+
+
+
+for i in contrato:
+    print(f'{i}: {contrato[i]}')

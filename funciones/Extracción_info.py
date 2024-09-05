@@ -39,7 +39,12 @@ def extraer_objcontrato(texto,patron): # para garantizar el exito de esta expres
 
 
 
-
+def extraer_obligaciones(texto,patron):
+    match = re.search(texto,patron,re.IGNORECASE)
+    result = ""
+    if match:
+        result = match.group()
+    return result
 
     
 

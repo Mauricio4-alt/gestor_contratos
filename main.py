@@ -1,8 +1,10 @@
 from __init__ import *
 
 # Cargar archivo PDF
-# texto = extraer_texto("contrato_corto-1")
-texto = extraer_texto("contrato_2-1")
+texto = extraer_texto("contrato_corto-1")
+paginas = list_pages('contrato_corto-*.jpeg')
+# print(paginas)
+# texto = extraer_texto("contrato_2-1")
 # print(texto)
 contrato = {}
 
@@ -27,22 +29,17 @@ texto = texto[fin:]
 #delimitación del texto
 
 contrato['contratista'] = datos_contratista# print(sig_texto)
+# extraer objeto del contrato
+# objeto = ''
+# contrato['objeto'] = extraer_cpuntuales(objeto,paginas)
 
-# Extraer objeto
-# pobj = r"\d+\.\s(.*?)(?=\s\d+\.\s|$)"
-# obj=extraer_objcontrato(texto,pobj)
-# print(texto)
-# print(obj)
-# contrato['Objeto'] = obj
-# print(fin)
-
-# extraer detalles financieros  
-# contratista
-# pa_contratante = r''
-# contrato['obligaciones'] = dict()
-# contrato['obligaciones']['contratista'] = extraer_obligaciones()
+# extraer vigencia del contrato
+vigencia = r"2\. vigencia: (.*?)(?:3\. cláusulas|$)"
+# contrato['objeto']= extraer_cpuntuales(vigencia,paginas,extraer_texto)
 
 
 
-for i in contrato:
-    print(f'{i}: {contrato[i]}')
+# for key,value in contrato.items():
+    # print(f'{key} {value} ')
+for ruta in paginas:
+    print(ruta)

@@ -31,42 +31,42 @@ def extraer_drepresentante(texto,pa_representante,pa_cedula,pa_empre,pa_nit):
         datos['Nit']=nit.group(1) + '-' +nit.group(2)
     return datos,nit.end()
         
-def extraer_objcontrato(texto,patron): # para garantizar el exito de esta expresión es necesario usar . en ella
+def extraer_cpuntuales(patron,paginas,funcion): # para garantizar el exito de esta expresión es necesario usar . en ella
     
-    coincidencias = re.findall(patron, texto, re.DOTALL)
-    listas_objeto = [p.strip() for p in coincidencias]
-    return listas_objeto      
+    coincidencias = None  # Inicializamos la variable para evitar errores si no hay coincidencias
+
+    for pagina in paginas:
+        texto = funcion(pagina)
+        resultado = re.search(patron, texto, re.DOTALL)  # Realizamos la búsqueda con el patrón
+        if resultado:
+            coincidencias = resultado.group(1)  # Tomamos el primer grupo coincidente
+            break  # Detenemos el bucle si encontramos coincidencias
+    return coincidencias
 
 
+# def extraer_obligaciones(texto,patron):
+#     match = re.search(texto,patron,re.IGNORECASE)
+#     result = ""
+#     if match:
+#         result = match.group()
+#     return result
 
-def extraer_obligaciones(texto,patron):
-    match = re.search(texto,patron,re.IGNORECASE)
-    result = ""
-    if match:
-        result = match.group()
-    return result
-
-    
-
-
-    
-
-    
-    
     
 
 
+    
+
+    
+    
+    
 
 
 
 
 
 
-if __name__=='__main__':
-    texto ='perro\nlobo\ngato\ngata\nperra\nloba'
-    er= r'\b[a-z]*a\b'
-    obj = extraer_objcontrato(texto,er)
-    print(obj)
+
+
 
         
 

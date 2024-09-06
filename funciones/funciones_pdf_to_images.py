@@ -31,8 +31,6 @@ def save_images(images, document_name, save_folder=save_folder):
 def list_pages(patron):# función para listar las paginas del documento
     ruta =path("C://gestor_contratos//contratos_convertidos//") #establecer la ruta
     documentos = list(ruta.glob(patron)) # retorna las rutas basados en un patron y las vuelve un listado
-    documentos.sort()
-
-    return documentos
-images=pdf_to_images('contrato_1')
-save_images(images,"contrato_2")
+    documentos.sort() # ordena dicha lista
+    pages =[os.fspath(p) for p in documentos]
+    return pages

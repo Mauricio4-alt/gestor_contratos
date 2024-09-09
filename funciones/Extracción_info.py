@@ -20,28 +20,28 @@ def extraer_drepresentante(texto,pa_representante,pa_cedula,pa_empre,pa_nit):
     #r'(?:de ciudadanía no\. |de ciudadanía número )(\d{1,3}\.?\d{3}\.?\d{3})'
     #r'(?:representante legal de |representación de)([\w\. ]+)[,;]? ')
     #r'\d{3}\.\d{3}\.\d{3}[ ]?\-[ ]?\d'
-    if n_representante:
+    
+    
+    if n_representante and c_representante and empresa and nit:
         datos['nombre_representante']=n_representante.group(1)
-    
-    if c_representante:
         datos['cedula_representante']=c_representante.group(1)
-    if empresa:    
         datos['Empresa']=empresa.group(1)
-    if nit:
         datos['Nit']=nit.group(1) + '-' +nit.group(2)
-    return datos,nit.end()
+        return datos,nit.end()
+    return None,0
         
-def extraer_cpuntuales(patron,paginas,funcion): # para garantizar el exito de esta expresión es necesario usar . en ella
+def extraer_cpuntuales(patron,texto): # para garantizar el exito de esta expresión es necesario usar . en ella
     
-    coincidencias = None  # Inicializamos la variable para evitar errores si no hay coincidencias
+      # Inicializamos la variable para evitar errores si no hay coincidencias
+    resultado = re.search(patron, texto, re.DOTALL)  # Realizamos la búsqueda con el patrón
+    if resultado:
+        coincidencias = resultado.group(1)  # Tomamos el primer grupo coincidente
+          # Detenemos el bucle si encontramos coincidencias
+        return coincidencias
 
-    for pagina in paginas:
-        texto = funcion(pagina)
-        resultado = re.search(patron, texto, re.DOTALL)  # Realizamos la búsqueda con el patrón
-        if resultado:
-            coincidencias = resultado.group(1)  # Tomamos el primer grupo coincidente
-            break  # Detenemos el bucle si encontramos coincidencias
-    return coincidencias
+    
+
+
 
 
 # def extraer_obligaciones(texto,patron):
